@@ -25,7 +25,7 @@ We will be looking for things like this in your code:
 We want to implement a part of an [escrow account](https://en.wikipedia.org/wiki/Escrow) product. The page we are interested in is the product definition page.
 For a better idea of what we're looking for, take a look at the following screenshot of the said page.
 
-<img src="https://github.com/toman-pay/junior-backend-project/raw/main/escrow.png" width="223" height="400">
+<img src="https://github.com/toman-pay/interview-projects/raw/main/backend-junior.png" width="223" height="400">
 
 What we ultimately need is a REST endpoint that enables our front-end client to send a request to submit a product description to our servers. The submitted product should be stored in the database. The response to the request should be the success status and a follow-up ID if the submission was successful.
 Here's an example of such a response, but you can change it if you wish:
