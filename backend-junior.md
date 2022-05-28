@@ -38,6 +38,7 @@ Here's an example of such a response, but you can change it if you wish:
 
 ### Requirements
 
+- It'd be great if you could implement this in Django, but feel free to use any other Python framework if you feel more comfortable doing so
 - You **don't** need to render any HTML whatsoever, we only want a REST API
 - Providing an API Doc for the implemented endpoint is **optional** but we'd love to have one
 - User authentication and authorization are **optional** but you can implement one if you felt like it
