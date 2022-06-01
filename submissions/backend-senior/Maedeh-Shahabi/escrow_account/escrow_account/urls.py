@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import include, path
 
 urlpatterns = [
+
+                  path('api/v1/escrow_account/products/', include('product.urls', namespace='v1_products')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

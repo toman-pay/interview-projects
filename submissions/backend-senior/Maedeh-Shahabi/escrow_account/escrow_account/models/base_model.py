@@ -6,7 +6,7 @@ from escrow_account.manager.base_model_manager import BaseModelManager
 
 class BaseModel(models.Model):
     # Soft Deletion
-    is_deleted = models.BooleanField(blank=False)
+    is_deleted = models.BooleanField(default=False)
     deletion_time = models.DateTimeField(blank=True, null=True, default=None)
 
     # override these fields accordingly
