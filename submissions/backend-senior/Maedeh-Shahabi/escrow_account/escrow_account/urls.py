@@ -20,5 +20,6 @@ from django.urls import include, path
 urlpatterns = [
 
                   path('api/v1/escrow_account/products/', include('product.urls', namespace='v1_products')),
+                  path('api/v1/escrow_account/identity/', include('identity.urls', namespace='v1_identity')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

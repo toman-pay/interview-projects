@@ -30,6 +30,8 @@ DEBUG = config(BaseConstants.DEBUG, cast=bool)
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'identity.UserModel'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
 
     # project apps
     'product',
+    'identity',
 
     # 3rd party apps
     'rest_framework',
