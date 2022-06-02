@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 from escrow_account.models.base_model import BaseModel
 from escrow_account.models.uuid_model import UUIDModel
-from identity.managers.user_model_manager import UserEntityManager
+from identity.managers.user_model_manager import UserModelManager
 
 
 class UserModel(AbstractBaseUser, BaseModel, UUIDModel):
@@ -21,8 +21,8 @@ class UserModel(AbstractBaseUser, BaseModel, UUIDModel):
     )
 
     # user object managers
-    objects = UserEntityManager()
-    all_objects = UserEntityManager(alive_only=False)
+    objects = UserModelManager()
+    all_objects = UserModelManager(alive_only=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
