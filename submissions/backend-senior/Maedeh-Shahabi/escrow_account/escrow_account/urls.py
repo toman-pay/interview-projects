@@ -16,10 +16,17 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
+                  # Authentication URLs
+                  path('api/v1/escrow_account/jwt/create/', TokenObtainPairView.as_view(), name='jwt_token_create'),
+                  path('api/v1/escrow_account/jwt/refresh/', TokenRefreshView.as_view(), name='jwt_token_refresh'),
 
+                  # Product application URLs
                   path('api/v1/escrow_account/products/', include('product.urls', namespace='v1_products')),
+
+                  # Identity application URLs
                   path('api/v1/escrow_account/identity/', include('identity.urls', namespace='v1_identity')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
