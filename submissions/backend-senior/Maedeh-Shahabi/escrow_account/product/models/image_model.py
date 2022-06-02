@@ -13,8 +13,8 @@ def images_upload_path(instance, filename):
 
 
 class ImageModel(UUIDModel, BaseModel):
-    image_path = models.ImageField(upload_to=images_upload_path, blank=False, null=False, editable=False)
-    product = models.ForeignKey(to=ProductModel, on_delete=models.CASCADE, blank=False, null=False)
+    image = models.ImageField(upload_to=images_upload_path, blank=False, null=False, editable=False)
+    product = models.ForeignKey(to=ProductModel, to_field='id', on_delete=models.CASCADE, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Image'
