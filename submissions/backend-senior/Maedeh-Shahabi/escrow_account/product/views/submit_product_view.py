@@ -6,6 +6,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 
 from escrow_account.base_constants import BaseConstants
+from escrow_account.utils.response_utils import ResponseUtils
 from product.models import ProductModel
 from product.serializers.submit_product_serializer import SubmitProductSerializer
 
@@ -23,9 +24,9 @@ class SubmitProductView(CreateAPIView):
         serializer: SubmitProductSerializer = self.get_serializer(data=request.data)
         if serializer.is_valid(raise_exception=False):
             self.perform_create(serializer=serializer)
+            data: dict = dict()
             _status_code: str = status.HTTP_201_CREATED
             success: bool = True
-            data: dict = dict()
             id_: Optional[str] = serializer.data.get(BaseConstants.id_)
 
         else:
@@ -34,10 +35,9 @@ class SubmitProductView(CreateAPIView):
             success: bool = False
             id_: Optional[str] = None
 
-        # todo move to a response class
-        final_data: Dict[str, Any] = {
-            BaseConstants.success: success,
-            BaseConstants.id_: id_,
-            BaseConstants.data: data,
-        }
+        final_data: Dict[str, Any] = ResponseUtils().get_create_response_data(
+            success=success,
+            id_=id_,
+            data=data)
+
         return Response(data=final_data, status=_status_code)
