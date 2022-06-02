@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "f3a8121e-b247-40f1-b463-68292a34d929",
+		"name": "Escrow Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Submit a new Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MTU3NDI0LCJpYXQiOjE2NTQxNTcxMjQsImp0aSI6ImIxZWQwMzU3NTMzMzRjMzBiZGNhNmQxZTE3Y2I0YTIxIiwidXNlcl9pZCI6Ijk0MGQ4NWQzLTg0YzgtNGI4ZS05OThjLWU4NGRjZTQzMGE2MyJ9.CIW4HLZU9o4SPr8aPLpq_NPZ2ZDfuThkkNC02vj_S6c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "دورس زرد 7",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "دارای یقه برگردان و آستین بلند",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "700000",
+									"type": "text"
+								},
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/home/maedeh/Desktop/d1.jpeg"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/home/maedeh/Desktop/d2.jpeg"
+								},
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "/home/maedeh/Desktop/d3.jpeg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/escrow_account/products/submit/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"escrow_account",
+								"products",
+								"submit",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "Create a new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"pzntdf@sgaaaisfg.com\",\n    \"password\": \"T0m@n2&22\",\n    \"repeat_password\": \"T0m@n2&22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/escrow_account/identity/user/create/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"escrow_account",
+								"identity",
+								"user",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create JWT Access Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"pzntdf@sgaaaisfg.com\",\n    \"password\": \"T0m@n2&22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/escrow_account/jwt/create/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"escrow_account",
+								"jwt",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create JWT Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1NDI0Mzc1NSwiaWF0IjoxNjU0MTU3MzU1LCJqdGkiOiI2NWUzYjk5MGNlYzU0ZTA4YmNmN2QxYTQ5ZGM1NzhhYiIsInVzZXJfaWQiOiI5NDBkODVkMy04NGM4LTRiOGUtOTk4Yy1lODRkY2U0MzBhNjMifQ.o857d7zJHVxUlJygURAatOsWA9A9OSM5jDCoKoEFN7s\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/escrow_account/jwt/refresh/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"escrow_account",
+								"jwt",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
