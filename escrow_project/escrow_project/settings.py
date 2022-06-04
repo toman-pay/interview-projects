@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ROOT_URLCONF = 'escrow_project.urls'
+PROJECT_NAME = os.getenv("PROJECT_NAME", ROOT_URLCONF.split(".")[0])
 
 # Application definition
 
@@ -37,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party
+
+    # local
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [
