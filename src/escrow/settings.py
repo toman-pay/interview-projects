@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # third party
     'rest_framework',
     'drf_yasg',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
 
     # apps
     'products',
