@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ViewSet, GenericViewSet
 
-# Create your views here.
+
+class ProductViewSet(ViewSet, GenericViewSet):
+    """ Escrow Products ViewSet """
+    pass
