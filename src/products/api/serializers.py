@@ -47,7 +47,7 @@ class ProductSerializer(serializers.ModelSerializer):
                         ProductImageModel(
                             product=product_obj,
                             image=picture
-                            ) for picture in images
+                        ) for picture in images
                     )
         except DatabaseError:
             raise NotAcceptable({'error': Messages.DATABASE_ERROR.value})
