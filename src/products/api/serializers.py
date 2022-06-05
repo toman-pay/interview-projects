@@ -43,7 +43,7 @@ class ProductSerializer(serializers.ModelSerializer):
             with transaction.atomic():
                 product_obj = super().create(validated_data)
                 if images:
-                    p = ProductImageModel.objects.bulk_create(
+                    ProductImageModel.objects.bulk_create(
                         ProductImageModel(
                             product=product_obj,
                             image=picture
