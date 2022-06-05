@@ -1,1 +1,2 @@
 SUPPORTED_IMAGE_FORMATS = ['jpeg', 'jpg', 'png']
+MXIMUM_IMAGE_SIZE = 2*10**6 # 2MB
