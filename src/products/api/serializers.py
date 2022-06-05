@@ -17,7 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ('title', 'price', 'description', 'images')
         extra_kwargs ={
             'price' : {
-                'min_value' : 10 ** -settings.DECIMAL_PLACES,
+                'min_value' : 10 ** -(settings.DECIMAL_PLACES +1),
                 'error_messages' : {'min_value' : Messages.MIN_VALUE.value}
             }
         }
