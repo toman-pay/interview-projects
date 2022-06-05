@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from ..models import ProductImageModel, ProductModel
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError, NotAcceptable
 from ..messages import Messages
 from django.conf import settings
+from django.db import transaction, DatabaseError
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -38,12 +39,18 @@ class ProductSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         images = validated_data.pop('images', False)
-        product_obj = super().create(validated_data)
-        if images:
-            p = ProductImageModel.objects.bulk_create(
-                ProductImageModel(
-                    product=product_obj,
-                    image=picture
-                    ) for picture in images
-            )
+        product_obj = None
+        try:
+            with transaction.atomic():
+                product_obj = super().create(validated_data)
+                if images:
+                    p = ProductImageModel.objects.bulk_create(
+                        ProductImageModel(
+                            product=product_obj,
+                            image=picture
+                            ) for picture in images
+                    )
+        except DatabaseError:
+            raise NotAcceptable({'error': Messages.DATABASE_ERROR.value})
+
         return product_obj

@@ -6,7 +6,7 @@ from rest_framework.request import is_form_media_type
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="excrow APIS",
+      title="escrow APIS",
       default_version='v1',
    ),
    public=True,
