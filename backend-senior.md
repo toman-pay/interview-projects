@@ -44,7 +44,7 @@ Here's an example of such a response, but you can change it if you wish:
 - All text fields should be required
 - The price should be a positive number
 - User can add up to 5 images (or none if he/she chooses to not upload anything)
-- Use can only add images before submitting the product
+- User can only add images before submitting the product
 - Images should not be more than 2 MB in size
 - Setting up Django Admin for this project is **optional**
 - You can choose any DBMS that Django supports as your database backend
