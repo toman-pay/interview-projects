@@ -1,4 +1,4 @@
-## Senior Backend Developer Project Definition
+## Senior React Developer Project Definition
 
 ### Goals
 This project is meant to give us a rough idea about how much you are technically experienced and also show you what is the general type of tasks we do in Toman.
@@ -30,7 +30,7 @@ For a better idea of what we're looking for, take a look at the following screen
 What we ultimately need is a page to submit a product description to our servers.
 The design page can be found in [this Figma project](https://www.figma.com/file/jniwhCb5f7VEVQGrOkLOMe/Frontend-Project?node-id=0%3A1).
 
-API documentation can be found at this [Apicurio preview](https://studio.apicur.io/preview?aid=72060).
+API documentation can be found at this [ReDoc page](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/toman-pay/interview-projects/main/front-api-specification.json).
 The referenced [server](https://run.mocky.io/v3/d1055cef-c469-49ed-835f-3a55d06f86f1) in the documentation is not an actual server and doesn't validate the requests, it always returns HTTP 204 response.
 
 ### Requirements
