@@ -38,46 +38,46 @@ class _AddProductState extends State<AddProduct> {
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset(Assets.productInfoIcon),
-                        const SizedBox(width: 12),
-                        const Text('اطلاعات محصول'),
-                      ],
-                    ),
-                    const SizedBox(height: 48),
-                    TomanTextField(
-                      onChanged: (value) => state.title = value,
-                      title: 'عنوان محصول',
-                      textInputAction: TextInputAction.next,
-                    ),
-                    const SizedBox(height: 12),
-                    TomanTextField(
-                      onChanged: (value) => state.price = value,
-                      title: 'قیمت',
-                      textInputAction: TextInputAction.next,
-                      textInputType: TextInputType.number,
-                      suffix: 'تومان',
-                      isPrice: true,
-                    ),
-                    const SizedBox(height: 12),
-                    TomanTextField(
-                      onChanged: (value) => state.description = value,
-                      title: 'توضیحات',
-                      textInputAction: TextInputAction.done,
-                      maxLines: 3,
-                    ),
-                    const SizedBox(height: 24),
-                    Consumer<AddProductState>(
-                      builder: (context, state, child) => TomanCheckbox(
+        child: Consumer<AddProductState>(
+          builder: (context, state, child) => Stack(
+            children: [
+              SingleChildScrollView(
+                padding: const EdgeInsets.all(24),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SvgPicture.asset(Assets.productInfoIcon),
+                          const SizedBox(width: 12),
+                          const Text('اطلاعات محصول'),
+                        ],
+                      ),
+                      const SizedBox(height: 48),
+                      TomanTextField(
+                        onChanged: (value) => state.title = value,
+                        title: 'عنوان محصول',
+                        textInputAction: TextInputAction.next,
+                      ),
+                      const SizedBox(height: 12),
+                      TomanTextField(
+                        onChanged: (value) => state.price = value,
+                        title: 'قیمت',
+                        textInputAction: TextInputAction.next,
+                        textInputType: TextInputType.number,
+                        suffix: 'تومان',
+                        isPrice: true,
+                      ),
+                      const SizedBox(height: 12),
+                      TomanTextField(
+                        onChanged: (value) => state.description = value,
+                        title: 'توضیحات',
+                        textInputAction: TextInputAction.done,
+                        maxLines: 3,
+                      ),
+                      const SizedBox(height: 24),
+                      TomanCheckbox(
                         title: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
@@ -100,23 +100,24 @@ class _AddProductState extends State<AddProduct> {
                           ),
                         ),
                         value: state.termsAccepted,
-                        onChanged: (value) => state.termsAccepted = true,
+                        onChanged: (value) => state.termsAccepted = value,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 16,
-              left: 24,
-              right: 24,
-              child: TomanButton(
-                title: 'تایید',
-                onPressed: () => _onConfirmed(state),
+              Positioned(
+                bottom: 16,
+                left: 24,
+                right: 24,
+                child: TomanButton(
+                  enabled: state.termsAccepted,
+                  title: 'تایید',
+                  onPressed: () => _onConfirmed(state),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -124,22 +125,6 @@ class _AddProductState extends State<AddProduct> {
 
   Future<void> _onConfirmed(AddProductState state) async {
     FocusScope.of(context).unfocus();
-    if (!state.termsAccepted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: const Duration(seconds: 1),
-          content: Text(
-            'پذیرش شرایط و قوانین الزامیست.',
-            style: Theme.of(context)
-                .textTheme
-                .bodyText2!
-                .copyWith(color: Colors.white),
-          ),
-          backgroundColor: Colors.red,
-        ),
-      );
-      return;
-    }
     ActionSheetUtils.showLoadingIndicator(context);
     final result = await state.addProduct();
     if (mounted) {
@@ -172,7 +157,6 @@ class _AddProductState extends State<AddProduct> {
       onPressed: () {
         Navigator.of(context).pop();
         state.termsAccepted = true;
-        state.update();
       },
     );
   }

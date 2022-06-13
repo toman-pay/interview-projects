@@ -6,7 +6,13 @@ class AddProductState extends CoreProvider {
   String title = '';
   String price = '';
   String description = '';
-  bool termsAccepted = false;
+  bool _termsAccepted = false;
+
+  bool get termsAccepted => _termsAccepted;
+  set termsAccepted(bool value) {
+    _termsAccepted = value;
+    notifyListeners();
+  }
 
   Future<bool> addProduct() async {
     final service = RequestService(

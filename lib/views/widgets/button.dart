@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:interview_projects/confg/design.dart';
+import 'package:interview_projects/confg/theme.dart';
 
 class TomanButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
+  final bool enabled;
   const TomanButton({
     Key? key,
     required this.title,
     required this.onPressed,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -16,8 +19,9 @@ class TomanButton extends StatelessWidget {
       width: double.infinity,
       child: MaterialButton(
         height: 48,
-        onPressed: onPressed,
+        onPressed: enabled ? onPressed : null,
         color: Theme.of(context).colorScheme.primary,
+        disabledColor: Colors.grey,
         shape: RoundedRectangleBorder(
           borderRadius: DesignConfig.highBorderRadius,
         ),
