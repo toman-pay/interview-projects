@@ -1,4 +1,4 @@
-## Senior Backend Developer Project Definition
+## Flutter Developer Project Definition
 
 ### Goals
 This project is meant to give us a rough idea about how much you are technically experienced and also show you what is the general type of tasks we do in Toman.
