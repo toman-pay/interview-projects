@@ -1,0 +1,12 @@
+.venv/
+.vscode/
+.history/
+__pycache__/
+*.pyc
+
+.env
+
+media/
+static/
+
+interview_task/settings
