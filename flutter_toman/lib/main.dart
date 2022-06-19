@@ -18,9 +18,18 @@ class MyApp extends StatelessWidget {
       title: 'Flutter',
       theme: ThemeData(
         hintColor: LightThemeColors.secondryTextColor,
+        unselectedWidgetColor: LightThemeColors.secondryColor,
+        checkboxTheme: CheckboxThemeData(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        ),
         inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+                borderSide:
+                    const BorderSide(color: LightThemeColors.secondryColor),
+                borderRadius: BorderRadius.circular(8)),
             border: const OutlineInputBorder(),
             enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
                     color:
                         LightThemeColors.primaryTextColor.withOpacity(0.1)))),
@@ -33,9 +42,9 @@ class MyApp extends StatelessWidget {
           button: defaultTextStyle.copyWith(
               color: LightThemeColors.primaryColor,
               fontWeight: FontWeight.bold,
-              fontSize: 16),
+              fontSize: 15),
           subtitle2: defaultTextStyle,
-          bodyText2: defaultTextStyle,
+          bodyText2: defaultTextStyle.copyWith(fontSize: 15),
           caption:
               defaultTextStyle.apply(color: LightThemeColors.secondryTextColor),
         ),
@@ -48,7 +57,7 @@ class MyApp extends StatelessWidget {
         snackBarTheme: SnackBarThemeData(
             contentTextStyle: defaultTextStyle.apply(color: Colors.white)),
       ),
-      home: const Directionality(
+      home: const  Directionality(
           textDirection: TextDirection.rtl, child: HomeScreen()),
     );
   }
