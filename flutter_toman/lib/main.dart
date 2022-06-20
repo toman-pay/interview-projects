@@ -25,12 +25,13 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
             focusedBorder: OutlineInputBorder(
                 borderSide:
-                    const BorderSide(color: LightThemeColors.secondryColor),
+                    const BorderSide(color: LightThemeColors.secondryColor, width: 1),
                 borderRadius: BorderRadius.circular(8)),
             border: const OutlineInputBorder(),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
+                  width: 1,
                     color:
                         LightThemeColors.primaryTextColor.withOpacity(0.1)))),
         appBarTheme: AppBarTheme(

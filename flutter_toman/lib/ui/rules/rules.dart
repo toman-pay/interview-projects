@@ -9,7 +9,7 @@ class RulesScreen extends StatelessWidget {
     final themeData = Theme.of(context);
 
     return SizedBox(
-      height: 440,
+      height: 460,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
         child: Column(
@@ -48,6 +48,7 @@ class RulesScreen extends StatelessWidget {
                   )
                 ),
                   onPressed: () {
+                    FocusManager.instance.primaryFocus!.unfocus();
                     Navigator.pop(context);
                   },
                   child: const Text(
