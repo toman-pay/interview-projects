@@ -11,7 +11,7 @@ class RulesScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: SizedBox(
-        height: 460,
+        height: 470,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
           child: Column(
@@ -25,8 +25,7 @@ class RulesScreen extends StatelessWidget {
                 height: 10,
               ),
               Text('شرایط و قوانین',
-                  style: themeData.textTheme.subtitle2!
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 16)),
+                  style: themeData.textTheme.subtitle1),
               const SizedBox(
                 height: 16,
               ),
@@ -34,7 +33,7 @@ class RulesScreen extends StatelessWidget {
                 'کاربران هر یک از سرویس های سامانه معاملات امن تومن به هر شکل و عنوان، مستقیم یا غیر مستقیم و جزئی یا کلی، ملزم به رعایت قوانین و مقررات حاکم بر کل سامانه معاملات امن تومن می باشند. در صورت تغییر این قوانین، جزییات این تغییرات به اطلاع کلیه کاربران خواهد رسید که از زمان ابلاغ و اعلام تغییرات، قوانین به روز شده در کل سامانه معاملات امن تومن، لازم الاجرا خواهند بود. همواره آخرین نسخه قوانین حاکم بر سامانه معاملات تومن، در سایت سامانه در دسترس عموم خواهد بود و قابل استناد می باشند',
                 textAlign: TextAlign.justify,
                 style: themeData.textTheme.caption!
-                    .copyWith(fontSize: 14, height: 1.9),
+                    .copyWith(fontSize: 14, height: 1.8),
               ),
               const SizedBox(
                 height: 24,

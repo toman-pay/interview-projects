@@ -72,8 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
             title: Text(
               'ساخت تراکنش',
-              style: themeData.textTheme.subtitle2!
-                  .copyWith(fontWeight: FontWeight.w500),
+              style: themeData.textTheme.subtitle2,
             )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: SizedBox(
@@ -143,19 +142,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           width: 12,
                         ),
-                        Text(
-                          'اطلاعات محصول',
-                          style: themeData.textTheme.subtitle2!
-                              .copyWith(fontWeight: FontWeight.bold),
-                        )
+                        Text('اطلاعات محصول',
+                            style: themeData.textTheme.subtitle1!.copyWith(fontSize: 15)),
                       ],
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 24, top: 40),
                     child: Text('عنوان محصول',
-                        style: themeData.textTheme.subtitle2!
-                            .copyWith(fontWeight: FontWeight.w500)),
+                        style: themeData.textTheme.subtitle2),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 24, right: 24, top: 8),
@@ -172,15 +167,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           contentPadding:
                               EdgeInsets.only(bottom: 5, right: 10)),
                       textAlignVertical: TextAlignVertical.center,
-                      style: themeData.textTheme.bodyText2!
-                          .copyWith(fontWeight: FontWeight.w400),
+                      style: themeData.textTheme.bodyText2!,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 24, top: 12),
-                    child: Text('قیمت',
-                        style: themeData.textTheme.subtitle2!
-                            .copyWith(fontWeight: FontWeight.w500)),
+                    child: Text('قیمت', style: themeData.textTheme.subtitle2),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 24, right: 24, top: 8),
@@ -206,8 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 TextSelection.collapsed(offset: value.length),
                           );
                         },
-                        style: themeData.textTheme.bodyText2!
-                            .copyWith(fontWeight: FontWeight.w400),
+                        style: themeData.textTheme.bodyText2,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.only(
                               bottom: 5, right: 10, left: 10),
@@ -218,9 +209,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 24, top: 12),
-                    child: Text('توضیحات',
-                        style: themeData.textTheme.subtitle2!
-                            .copyWith(fontWeight: FontWeight.w500)),
+                    child:
+                        Text('توضیحات', style: themeData.textTheme.subtitle2),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 24, right: 24, top: 8),
@@ -232,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(10)),
                         style: themeData.textTheme.bodyText2!
-                            .copyWith(fontWeight: FontWeight.w400, height: 1.5),
+                            .copyWith(height: 1.8),
                         scrollController: _scrollController,
                         maxLines: 3,
                       ),
@@ -261,14 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         });
                                   },
                                 text: 'شرایط و قوانین ',
-                                style: themeData.textTheme.subtitle2!.copyWith(
+                                style: themeData.textTheme.bodyText2!.copyWith(
                                     color: LightThemeColors.primaryColor,
-                                    fontWeight: FontWeight.w700),
+                                    fontWeight: FontWeight.bold),
                                 children: [
                                   TextSpan(
                                     text: 'را می پذیرم.',
-                                    style: themeData.textTheme.subtitle2!
-                                        .copyWith(fontWeight: FontWeight.w500),
+                                    style: themeData.textTheme.bodyText2!
+                                        .copyWith(fontWeight: FontWeight.bold),
                                   )
                                 ]),
                           ),

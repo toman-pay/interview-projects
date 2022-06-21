@@ -23,14 +23,14 @@ class MyApp extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         inputDecorationTheme: InputDecorationTheme(
-          focusedErrorBorder:  OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: Colors.red),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: Colors.red),
-            borderRadius: BorderRadius.circular(8),
-          ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(width: 1, color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(width: 1, color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
             focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                     color: LightThemeColors.secondryColor, width: 1),
@@ -52,8 +52,9 @@ class MyApp extends StatelessWidget {
               color: LightThemeColors.primaryColor,
               fontWeight: FontWeight.bold,
               fontSize: 15),
-          subtitle2: defaultTextStyle,
-          bodyText2: defaultTextStyle.copyWith(fontSize: 15),
+          subtitle1: defaultTextStyle.copyWith(fontWeight: FontWeight.bold),
+          subtitle2: defaultTextStyle.copyWith(fontWeight: FontWeight.w600),
+          bodyText2: defaultTextStyle.copyWith(fontWeight: FontWeight.w400),
           caption:
               defaultTextStyle.apply(color: LightThemeColors.secondryTextColor),
         ),
