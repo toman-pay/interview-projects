@@ -23,15 +23,23 @@ class MyApp extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         inputDecorationTheme: InputDecorationTheme(
+          focusedErrorBorder:  OutlineInputBorder(
+            borderSide: const BorderSide(width: 1, color: Colors.red),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 1, color: Colors.red),
+            borderRadius: BorderRadius.circular(8),
+          ),
             focusedBorder: OutlineInputBorder(
-                borderSide:
-                    const BorderSide(color: LightThemeColors.secondryColor, width: 1),
+                borderSide: const BorderSide(
+                    color: LightThemeColors.secondryColor, width: 1),
                 borderRadius: BorderRadius.circular(8)),
             border: const OutlineInputBorder(),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
-                  width: 1,
+                    width: 1,
                     color:
                         LightThemeColors.primaryTextColor.withOpacity(0.1)))),
         appBarTheme: AppBarTheme(
@@ -58,7 +66,7 @@ class MyApp extends StatelessWidget {
         snackBarTheme: SnackBarThemeData(
             contentTextStyle: defaultTextStyle.apply(color: Colors.white)),
       ),
-      home: const  Directionality(
+      home: const Directionality(
           textDirection: TextDirection.rtl, child: HomeScreen()),
     );
   }

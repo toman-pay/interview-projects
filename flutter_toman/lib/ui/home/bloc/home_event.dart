@@ -15,3 +15,7 @@ class HomeSubmitProduct extends HomeEvent {
   @override
   List<Object> get props => [params];
 }
+
+class HomeRulesClicked extends HomeEvent {
+  const HomeRulesClicked();
+}

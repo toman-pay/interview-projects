@@ -8,18 +8,22 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  bool isChecked;
   final IProductRepository repository;
 
-  HomeBloc(this.repository) : super(HomeInitial()) {
+  HomeBloc(this.repository, {this.isChecked = false}) : super(HomeInitial(isChecked)) {
     on<HomeEvent>((event, emit) async {
-      if (event is HomeSubmitProduct) {
-        try {
-          emit(HomeSubmitLoading());
+      try {
+        if (event is HomeSubmitProduct) {
+          emit(HomeSubmitLoading(isChecked));
           final response = await repository.submit(event.params);
-          emit(HomeSubmitSuccess(response));
-        } catch (e) {
-          emit(HomeSubmitError(AppException()));
+          emit(HomeSubmitSuccess(response, isChecked));
+        }else if (event is HomeRulesClicked) {
+          isChecked = !isChecked;
+          emit(HomeChangeCheckedRules(isChecked));
         }
+      } catch (e) {
+        emit(HomeSubmitError(AppException(), isChecked));
       }
     });
   }
