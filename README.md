@@ -5,7 +5,4 @@ Here's what can get you started for our technical interview process. Feel free t
 
 ### Positions
 Open one of the following pages based on what position you applied for:
-- [Backend (Junior)](https://github.com/toman-pay/interview-projects/blob/main/backend-junior.md)
 - [Backend (Senior)](https://github.com/toman-pay/interview-projects/blob/main/backend-senior.md)
-- [Frontend (React)](https://github.com/toman-pay/interview-projects/blob/main/frontend-react.md)
-- [Frontend (Flutter)](https://github.com/toman-pay/interview-projects/blob/main/frontend-flutter.md)
