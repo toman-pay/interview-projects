@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     # Local apps
     'users.apps.UsersConfig',
+    'products.apps.ProductsConfig',
 
     # 3rd party apps
     'rest_framework',
@@ -170,3 +171,7 @@ ACCOUNT_EMAIL_VERIFICATION = os.getenv('ACCOUNT_EMAIL_VERIFICATION', 'mandatory'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = os.getenv('ACCOUNT_CONFIRM_EMAIL_ON_GET', True)
 
 LOGIN_URL = 'http://localhost:8000/users/login'
+
+IMAGE_COUNT_LIMIT = int(os.getenv('IMAGE_COUNT_LIMIT', 5))
+IMAGE_MEGABYTE_SIZE_LIMIT = float(os.getenv('IMAGE_SIZE_LIMIT', 2))
+IMAGE_BYTE_SIZE_LIMIT = IMAGE_MEGABYTE_SIZE_LIMIT * 1024 * 1024
