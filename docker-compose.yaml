@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: toman_service
+    restart: always
+    build : escrow
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    volumes:
+      - ./static/:/home/app/webapp/static/
+      - ./media:/home/app/webapp/media/
+    depends_on:
+      - db
+
+  db:
+    container_name: toman_db
+    image: postgres:13.3
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env.dev.db
+
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
