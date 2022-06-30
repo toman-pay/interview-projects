@@ -3,3 +3,5 @@ djangorestframework
 dj-rest-auth
 django-allauth
 djangorestframework-simplejwt
+Pillow
+arrow
