@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zb3*w2##635^_7l-vcc!ef)f)^hnfz^_y304xxu=f*i2u(*=d7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', default=True)
 
 ALLOWED_HOSTS = []
 
@@ -85,10 +85,16 @@ WSGI_APPLICATION = 'escrow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DATABASE_ENGINE', default='django.db.backends.postgresql'),
+        'HOST': os.getenv('DATABASE_HOST', default='toman_db'),
+        'PORT': os.getenv('DATABASE_PORT', default=5432),
+        'NAME': os.getenv('DATABASE_NAME', default='toman'),
+        'USER': os.getenv('DATABASE_USER', default='tomanuser'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', default='tomanpassword')
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

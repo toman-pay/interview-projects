@@ -5,3 +5,5 @@ django-allauth
 djangorestframework-simplejwt
 Pillow
 arrow
+gunicorn
+psycopg2-binary
