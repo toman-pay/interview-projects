@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+  escrow:
+    build: .
+    restart: always
+    command:  /bin/bash -c "/entry_point.sh"
+    env_file: environments/production.env
+    ports:
+      - "9000:8000"
+    volumes:
+      - ~/EscrowSharedDir/EscrowApp:/logs
+#      - ~/EscrowSharedDir/EscrowApp/static:/static
+      - ~/EscrowSharedDir/EscrowApp/socket:/socket
+    depends_on:
+      - db
+      - redis
+
+  celery:
+    build: .
+    command: celery -A escrow worker --beat --scheduler django --loglevel=info --logfile=/logs/celery.log
+    env_file: environments/production.env
+    restart: always
+    volumes:
+      - ~/EscrowSharedDir/EscrowCelery:/logs
+    depends_on:
+      - escrow
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=ESCROW
+      - POSTGRES_USER=ESCROW
+      - POSTGRES_PASSWORD=ESCROW
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5544:5432"
+
+  redis:
+    image: redis:6.2-alpine
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
+  db_data:

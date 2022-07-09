@@ -1,0 +1,7 @@
+.idea
+venv
+env
+*.log
+__pycache__
+*.sqlite3
+settings_local.py
