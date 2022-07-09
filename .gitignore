@@ -5,3 +5,4 @@ env
 __pycache__
 *.sqlite3
 settings_local.py
+note.txt
