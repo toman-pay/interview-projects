@@ -109,6 +109,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.getenv("ESCROW_MEDIA_ROOT", os.path.join(BASE_DIR, MEDIA_URL))
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -167,6 +170,8 @@ SIMPLE_JWT = {
 CELERY_REDIS_HOST = os.getenv("ESCROW_CELERY_REDIS_HOST", "localhost")
 CELERY_REDIS_PORT = os.getenv("ESCROW_CELERY_REDIS_PORT", "6379")
 CELERY_BROKER_URL = f'redis://{CELERY_REDIS_HOST}:{CELERY_REDIS_PORT}'
+
+# CELERY_BEAT_SCHEDULE => Use admin interface to set scheduled and periodic tasks! not here!
 
 LOG_PATH = os.getenv("ESCROW_LOG_DIR", '')
 if LOG_PATH:
