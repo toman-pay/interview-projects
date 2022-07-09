@@ -10,13 +10,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w=7#ajqtpg-!go1ge_%ath@z$@&w&7-k71xpp5dz0df+6q4x*)'
+SECRET_KEY = os.getenv("ESCROW_SECRET_KEY", default="LetsSaySimpleDevelopmentSecret!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+# CORS_ALLOWED_ORIGINS = []
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
 
 # Application definition
 
@@ -40,7 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,8 +80,12 @@ WSGI_APPLICATION = 'escrow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('ESCROW_PG_NAME', 'ESCROW'),
+        'USER': os.environ.get('ESCROW_PG_USER', 'ESCROW'),
+        'PASSWORD': os.environ.get('ESCROW_PG_PASSWORD', 'ESCROW'),
+        'HOST': os.environ.get('ESCROW_PG_HOST', 'localhost'),
+        'PORT': os.environ.get('ESCROW_PG_PORT', '5544'),
     }
 }
 
