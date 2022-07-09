@@ -1,22 +1,22 @@
 #Screw account restful Application
-An escrow is a contractual arrangement in which a third party (the stakeholder or escrow agent) receives and disburses 
-money or property for the primary transacting parties, with the disbursement dependent on conditions agreed to by the 
+An escrow is a contractual arrangement in which a third party (the stakeholder or escrow agent) receives and disburses
+money or property for the primary transacting parties, with the disbursement dependent on conditions agreed to by the
 transacting parties.
 
 ## Stack Description
 This app wrote with the Django framework which is integrated/used with:
 1. DRF
 2. JWT
-3. Celery 
+3. Celery
 4. Redis
 5. Rabbitmq
-6. Postgresql 
+6. Postgresql
 7. Docker & docker compose
 8. Swagger
 9. Sentry
 10. Postman
 11. Collection
-12. Test 
+12. Test
 13. pre-commit
 14. lint hooks(flake8 and auto-sort)
 
