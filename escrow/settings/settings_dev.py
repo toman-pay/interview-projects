@@ -23,7 +23,7 @@ CORS_ALLOW_CREDENTIALS = False
 # Application definition
 
 INSTALLED_APPS = [
-    # Builtin
+    # Builtin Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -172,6 +172,10 @@ CELERY_REDIS_PORT = os.getenv("ESCROW_CELERY_REDIS_PORT", "6379")
 CELERY_BROKER_URL = f'redis://{CELERY_REDIS_HOST}:{CELERY_REDIS_PORT}'
 
 # CELERY_BEAT_SCHEDULE => Use admin interface to set scheduled and periodic tasks! not here!
+
+# it is better to set this value in nginx :)
+MAX_UPLOAD_SIZE = 2097152  # 2M
+
 
 LOG_PATH = os.getenv("ESCROW_LOG_DIR", '')
 if LOG_PATH:

@@ -4,14 +4,15 @@ services:
   escrow:
     build: .
     restart: always
-    command:  /bin/bash -c "/entry_point.sh"
+    command: /bin/bash -c "/entry_point.sh"
     env_file: environments/production.env
     ports:
       - "9000:8000"
     volumes:
-      - ~/EscrowSharedDir/EscrowApp:/logs
-#      - ~/EscrowSharedDir/EscrowApp/static:/static
-      - ~/EscrowSharedDir/EscrowApp/socket:/socket
+      - ~/EscrowSharedDir/EscrowApp/logs:/logs
+      - static:/static
+      - media:/media
+      - socket:/socket
     depends_on:
       - db
       - redis
@@ -25,6 +26,7 @@ services:
       - ~/EscrowSharedDir/EscrowCelery:/logs
     depends_on:
       - escrow
+
   db:
     image: postgres:14.1-alpine
     restart: always
@@ -42,6 +44,52 @@ services:
     volumes:
       - redis_data:/data
 
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:8080"
+    volumes:
+      - socket:/socket
+      - ~/EscrowSharedDir/nginx/logs:/var/log/nginx
+      - static:/static
+      - media:/media
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+      - escrow
+    ports:
+      - "5050:3000"
+    volumes:
+      - grafana:/var/lib/grafana
+    links:
+      - db
+      - redis
+      - escrow
+
+#  prometheus: # for the future => metrics
+#    image: prom/prometheus:v2.36.2
+#    volumes:
+#      - ./prometheus/:/etc/prometheus/
+#      - prometheus_data:/prometheus
+#    command:
+#      - '--config.file=/etc/prometheus/prometheus.yml'
+#      - '--storage.tsdb.path=/prometheus'
+#      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+#      - '--web.console.templates=/usr/share/prometheus/consoles'
+#    ports:
+#      - "9090:9090"
+#    restart: always
+
 volumes:
   redis_data:
   db_data:
+  socket:
+  static:
+  media:
+  grafana:
+#  prometheus_data:
