@@ -18,7 +18,7 @@ This app wrote with the Django framework which is integrated/used with:
 11. Collection
 12. Test
 13. pre-commit
-14. lint hooks(flake8 and auto-sort)
+14. Pre-commit lint hooks
 
 ## Dependency
 To run in production level, needs to have docker and docker-compose
