@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from freezegun import freeze_time
 from rest_framework.test import APIClient
-from unittest.mock import patch
+# from unittest.mock import patch
 User = get_user_model()
 
 
@@ -14,8 +14,8 @@ class UserTest(TestCase):
     password = "test_pass"
     cred_payload = {"username": username, "password": password}
 
-    @patch('apps.user.model.smt')
-    def test_create_user(self, mock):
+    # @patch('apps.user.model.smt')
+    def test_create_user(self):
         users_count = User.objects.count()
         self.assertEqual(users_count, 0)
         User.objects.create_user(**self.cred_payload)
