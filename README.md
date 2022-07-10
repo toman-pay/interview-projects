@@ -14,7 +14,7 @@ the products with the following fields:
 This app wrote with the Django framework which is integrated/used with:
 1. DRF
 2. JWT
-3. uWSGI
+3. uWSGI (connected to Nginx with the socket file)
 4. Celery
 5. Redis
 6. Rabbitmq
@@ -66,8 +66,16 @@ clone the git repository and got to project's root directory in the terminal and
 ```shell script
 docker-compose up --build -d
 ```
-Brows following url to check the URL docs:
-[http://localhost:80/swagger/](http://localhost:80/swagger/)
+Use following credential to access this section links to log in (modify the administrations cred right when you have
+been deployed for first time):
+```text
+username: admin
+password: admin
+```
+To access the Grafana go to [http://localhost:5050/](http://localhost:5050/) <br>
+To access the admin panel go to [http://localhost/admin/](http://localhost/admin/) <br>
+To send request to the APP you can use swagger or postman that are prepared, and you can read about them at the next
+steps.
 
 ## Swagger file
 Please refer to swagger file in the root of the project for more information about API.
@@ -78,4 +86,4 @@ Feel free to use postman collection as API example and docs:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9d79795edc4869d7b89b?action=collection%2Fimport#?env%5BDev%5D=W3sia2V5Ijoic2VydmVyX3VybCIsInZhbHVlIjoiaHR0cDovLzAuMC4wLjA6ODAwMCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiYWNjZXNzX3Rva2VuIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InJlZnJlc2hfdG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiYm90X3VybCIsInZhbHVlIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwIiwiZW5hYmxlZCI6dHJ1ZX1d)
 
 ## Licence
-Let's look forward for the licence later ;)
+Let's not look for a license for now ;)
