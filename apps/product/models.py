@@ -31,3 +31,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def files_count(self) -> int:
+        """
+        Count of images for this product
+        """
+        return self.files.all().count()
