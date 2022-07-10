@@ -16,6 +16,9 @@ services:
     depends_on:
       - db
       - redis
+    links:
+      - db
+      - redis
 
   celery:
     build: .
@@ -24,8 +27,13 @@ services:
     restart: always
     volumes:
       - ~/EscrowSharedDir/EscrowCelery:/logs
+    links:
+      - redis
+      - db
     depends_on:
       - escrow
+      - redis
+      - db
 
   db:
     image: postgres:14.1-alpine
