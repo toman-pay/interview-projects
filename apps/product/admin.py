@@ -7,7 +7,7 @@ from apps.product.models import Product
 class ProductFileTabularInline(admin.TabularInline):
     model = ProductFile
     readonly_fields = (
-        'id', 'original_name', 'md5sum', 'meta', 'creator', 'is_optimized', 'removed_from_storage', 'core'
+        'id', 'original_name', 'md5sum', 'meta', 'creator', 'is_optimized', 'removed_from_storage', 'core', 'is_public'
     )
 
 
