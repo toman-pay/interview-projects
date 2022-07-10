@@ -20,7 +20,7 @@ class ProductSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         from apps.file.models import ProductFile
-        images = validated_data.pop("images")
+        images = validated_data.pop("images", None)
         product = super().create(validated_data)
         if images:
             user = self.context["request"].user
@@ -30,7 +30,7 @@ class ProductSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         from apps.file.models import ProductFile
-        images = validated_data.pop("images")
+        images = validated_data.pop("images", None)
         product = super().update(instance=instance, validated_data=validated_data)
 
         if images is not None and isinstance(images, list):
