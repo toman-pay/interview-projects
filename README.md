@@ -61,13 +61,15 @@ clone the git repository and got to project's root directory in the terminal and
 sudo docker-compose up --build -d
 ```
 Brows following url to check the URL docs:
-http://localhost:8000/api/
+[http://localhost:80/swagger/](http://localhost:80/swagger/)
 
 ## Swagger file
 Please refer to swagger file in the root of the project for more information about API.
 
 ## Postman collection
 Feel free to use postman collection as API example and docs:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9d79795edc4869d7b89b?action=collection%2Fimport#?env%5BDev%5D=W3sia2V5Ijoic2VydmVyX3VybCIsInZhbHVlIjoiaHR0cDovLzAuMC4wLjA6ODAwMCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiYWNjZXNzX3Rva2VuIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InJlZnJlc2hfdG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiYm90X3VybCIsInZhbHVlIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwIiwiZW5hYmxlZCI6dHJ1ZX1d)
 
 ## Licence
 Let's look forward licence later ;)
