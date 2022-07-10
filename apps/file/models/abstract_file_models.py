@@ -11,7 +11,7 @@ class AbstractFileModel(models.Model):
 
     core = models.FileField()
 
-    md5sum = models.CharField(max_length=32, null=True)
+    md5sum = models.CharField(max_length=32, null=True, default=None)
     meta = models.JSONField(default=dict)
 
     creator = models.ForeignKey(
