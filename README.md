@@ -19,6 +19,11 @@ This app wrote with the Django framework which is integrated/used with:
 12. Test
 13. pre-commit
 14. Pre-commit lint hooks
+15. CORS handling
+16. Nginx for serving static/media files in production and Whitenoise for development.
+17. Grafana, prometheus for visualize and metrics
+18. Custom middleware to convert exception to API status (I love it!)
+19. Factory boy
 
 ## Dependency
 To run in production level, needs to have docker and docker-compose
