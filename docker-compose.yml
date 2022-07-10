@@ -6,8 +6,6 @@ services:
     restart: always
     command: /bin/bash -c "/entry_point.sh"
     env_file: environments/production.env
-    ports:
-      - "9000:8000"
     volumes:
       - ~/EscrowSharedDir/EscrowApp/logs:/logs
       - static:/static
@@ -44,15 +42,11 @@ services:
       - POSTGRES_PASSWORD=ESCROW
     volumes:
       - db_data:/var/lib/postgresql/data
-    ports:
-      - "5544:5432"
 
   redis:
     image: redis:6.2-alpine
     volumes:
       - redis_data:/data
-    ports:
-      - "6379:6379"
 
   nginx:
     build: ./nginx
