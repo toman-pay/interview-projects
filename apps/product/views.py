@@ -1,6 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
-from rest_framework.filters import SearchFilter
+from rest_framework.permissions import IsAuthenticated
 
 from apps.product.filters import ProductFilter
 from apps.product.models import Product
@@ -11,8 +11,8 @@ from apps.product.serializer import ProductSerializer
 class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     queryset = Product.objects.all().prefetch_related('files')
-    permission_classes = (ProductOwnerPermission,)
-    filter_backends = (DjangoFilterBackend, )
+    permission_classes = (IsAuthenticated, ProductOwnerPermission)
+    filter_backends = (DjangoFilterBackend,)
     filterset_class = ProductFilter
 
     def get_queryset(self):

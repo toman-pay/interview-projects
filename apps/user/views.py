@@ -10,7 +10,6 @@ User = get_user_model()
 
 
 class UserDetailView(viewsets.ReadOnlyModelViewSet):
-    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
