@@ -1,4 +1,3 @@
-import logging
 import os
 import shutil
 
@@ -9,5 +8,7 @@ logger = get_task_logger(__name__)
 
 
 @shared_task
-def remove_file_from_local_storage(path):
-    pass
+def remove_file_from_local_storage_task(path):
+    if os.path.isfile(path):
+        os.remove(path)
+        # let raise exception, bez we can't do anything if any permission denied or ... occurs during delete file :(
