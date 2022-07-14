@@ -1,12 +1,20 @@
+from django.conf import settings
 from rest_framework import serializers
 
 from product.models import Product, ProductImage
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    imageids = serializers.ListSerializer(
+        child=serializers.IntegerField(),
+        required=False,
+        max_length=settings.MAX_NUMBER_OF_FILES_PER_PRODUCT,
+        write_only=True,
+    )
+
     class Meta:
         model = Product
-        fields = ["id", "title", "description", "price"]
+        fields = ["imageids", "id", "title", "description", "price"]
         extra_kwargs = {
             "title": {"write_only": True},
             "description": {"write_only": True},
@@ -14,8 +22,12 @@ class ProductSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
+        imageids = validated_data.pop("imageids", [])
+
         try:
-            return super().create(validated_data)
+            instance = super().create(validated_data)
+            ProductImage.objects.filter(id__in=imageids).update(product=instance)
+            return instance
         except Exception as e:
             raise serializers.ValidationError(str(e))
 

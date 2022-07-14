@@ -129,6 +129,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MAX_FILE_SIZE = 2 * 1024 * 1024  # 2 MB
+MAX_NUMBER_OF_FILES_PER_PRODUCT = 5
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

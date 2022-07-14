@@ -4,6 +4,7 @@ from django.core.files.base import ContentFile
 from product.models import ProductImage
 from .product_factory import ProductFactory
 
+
 class ProductImageFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = ProductImage
