@@ -1,1 +1,2 @@
 from .sample_file_fixture import sample_file
+from .product_image_factory import ProductImageFactory
