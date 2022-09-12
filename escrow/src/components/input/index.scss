@@ -1,0 +1,43 @@
+@import "src/styles/_global.scss";
+
+.component-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: $spacing;
+  color: $dark-color;
+  font-size: 14px;
+
+  .row {
+    display: flex;
+    align-items: center;
+  }
+
+  .field-wrapper {
+    margin-top: calc($spacing / 2);
+    border-radius: $roundness;
+    border: 1px solid $secondary-color;
+    overflow: hidden;
+
+    .field {
+      padding: calc($spacing / 2);
+      width: 100%;
+      border: none;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .has-error {
+    border: 1px solid red;
+  }
+
+  .error {
+    position: absolute;
+    bottom: -18px;
+    right: 0;
+    font-size: 12px;
+    color: red;
+  }
+}

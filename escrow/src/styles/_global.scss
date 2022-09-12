@@ -1,0 +1,45 @@
+$gray-color: #8f9da4;
+$light-color: #ffffff;
+$dark-color: #222421;
+$border-color: #dfe4e7;
+$primary-color: #00897b;
+$secondary-color: #6a90a2;
+
+$spacing: 24px;
+$roundness: 7px;
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+html {
+  direction: rtl;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+}
+
+input[type="checkbox"] {
+  accent-color: $primary-color;
+  height: 15px;
+  width: 15px;
+}
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}

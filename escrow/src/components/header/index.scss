@@ -1,0 +1,11 @@
+@import "src/styles/_global.scss";
+
+.header {
+  padding: $spacing;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid $border-color;
+  text-align: center;
+  color: $dark-color;
+}
